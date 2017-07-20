@@ -8,17 +8,76 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+   
+    
+    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var sensitiveButton: UISwitch!
+    @IBOutlet var theScreen: UIView!
+    @IBOutlet weak var skinWheel: UIPickerView!
+    
+    
+    let components = [["Oily", "Dry", "Combination"], ["Acne", "Pores", "Redness", "Oil Control", "Age Prevention", "Dark Spots/Uneven Skin Tone", "Dryness", "Lack of Radiation", "Lifting and Firming"]]
+    
+    var selections: (String, String) = ("No", "Nothing")
+    
+    var skinType: String!
+    
+    var skinProblem: String!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.skinWheel.dataSource = self
+        self.skinWheel.delegate = self
+        skinWheel.frame.size.width = theScreen.frame.size.width
+        skinWheel.center.x = theScreen.center.x
+        submitButton.center.x = theScreen.center.x
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return components.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return components[component].count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return components[component][row]
+    }
+    
+    func pickerView(_pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            skinType = components[component][row]
+        }
+        else {
+            skinProblem = components[component][row]
+        }
+    }
+    
+    @IBAction func submitButton(_ sender: UIButton) {
+        skinType = selections.0
+        skinProblem = selections.1
+        print("\(skinType!) and \(skinProblem!)")
+    }
+    
+//    func presentTableView() {
+//        skinWheel.selectedRow(inComponent: <#T##Int#>)
+//    }
+
 
 
 }

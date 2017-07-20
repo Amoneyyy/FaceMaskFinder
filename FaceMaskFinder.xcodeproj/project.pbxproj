@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3BF0CE11F20FA5500D13178 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0CE01F20FA5500D13178 /* DetailViewController.swift */; };
+		B3BF0CE31F20FC2800D13178 /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF0CE21F20FC2800D13178 /* ProductsTableViewController.swift */; };
 		B3C4B8B71F20E64B00367CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4B8B61F20E64B00367CE8 /* AppDelegate.swift */; };
 		B3C4B8B91F20E64B00367CE8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C4B8B81F20E64B00367CE8 /* ViewController.swift */; };
 		B3C4B8BC1F20E64B00367CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C4B8BA1F20E64B00367CE8 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B3BF0CE01F20FA5500D13178 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B3BF0CE21F20FC2800D13178 /* ProductsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		B3C4B8B31F20E64A00367CE8 /* FaceMaskFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceMaskFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3C4B8B61F20E64B00367CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3C4B8B81F20E64B00367CE8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,6 +61,8 @@
 				B3C4B8B61F20E64B00367CE8 /* AppDelegate.swift */,
 				B3C4B8B81F20E64B00367CE8 /* ViewController.swift */,
 				B3C4B8BA1F20E64B00367CE8 /* Main.storyboard */,
+				B3BF0CE21F20FC2800D13178 /* ProductsTableViewController.swift */,
+				B3BF0CE01F20FA5500D13178 /* DetailViewController.swift */,
 				B3C4B8BD1F20E64B00367CE8 /* Assets.xcassets */,
 				B3C4B8BF1F20E64B00367CE8 /* LaunchScreen.storyboard */,
 				B3C4B8C21F20E64B00367CE8 /* Info.plist */,
@@ -136,6 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3BF0CE11F20FA5500D13178 /* DetailViewController.swift in Sources */,
+				B3BF0CE31F20FC2800D13178 /* ProductsTableViewController.swift in Sources */,
 				B3C4B8B91F20E64B00367CE8 /* ViewController.swift in Sources */,
 				B3C4B8B71F20E64B00367CE8 /* AppDelegate.swift in Sources */,
 			);
@@ -301,6 +309,7 @@
 				B3C4B8C71F20E64B00367CE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
