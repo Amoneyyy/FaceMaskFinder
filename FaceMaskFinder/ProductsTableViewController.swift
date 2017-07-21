@@ -13,14 +13,12 @@ class ProductsTableViewController: UITableViewController {
     var sorter: Sorter? 
     
     let products = [
-        "mask1" : [
-            "name" : "Biomiracle Anti-aging and Moisturizing Face Mask Sheets",
+        "Biomiracle Anti-aging and Moisturizing Face Mask Sheets" : [
             "Producer" : "Biomiracle",
             "Description" : " After 20 minutes of use, remove this Vitamin C sheet mask to reveal brighter, dewy skin. You’re sure to agree with the many happy reviewers that have already claimed this new product a 'must-have'. ---- Reduces fine lines and wrinkles, brightens skin texture; Firming affect; Made from the finest collagen essence; Easy application in just 20 minutes;",
             "Price" : "7"
         ],
-        "mask2" : [
-            "name" : "Garnier Skinactive Clean and Pore Purifying 2-in-1 Clay Cleanser and Mask",
+        "Garnier Skinactive Clean and Pore Purifying 2-in-1 Clay Cleanser and Mask" : [
             "Producer" : "Garnier",
             "Description" : "Get two products in one when you purchase the new clay cleanser and mask by Garnier that incorporates charcoal and kaolin to remove surface impurities while unclogging pores.; Daily cleanser & detox mask in 1 product; Kaolin clay + charcoal help purify skin",
             "Price" : "5"
@@ -125,7 +123,8 @@ class ProductsTableViewController: UITableViewController {
                 let selectedMask = personalizedResults[(indexPath?.row)!]
                 //nextViewController.testingLabel.text = "testing"
                 nextViewController.view.backgroundColor = UIColor.white
-                nextViewController.maskDescription.text = selectedMask
+                nextViewController.maskTitle.text = selectedMask
+                nextViewController.maskDetails.text = products[selectedMask]?["Description"] ?? "No description found"
                 
             }
         }
