@@ -22,9 +22,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var selections: (String, String) = ("No", "Nothing")
     
-    var skinType: String!
+    var skinType: String! = "noSkinTypeSelected"
     
-    var skinProblem: String!
+    var skinProblem: String! = "noSkinProblemSelected"
     
     
     
@@ -59,19 +59,27 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return components[component][row]
     }
     
-    func pickerView(_pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             skinType = components[component][row]
-        }
-        else {
+            print("\(skinType) selected & saved")
+        } else {
             skinProblem = components[component][row]
+            print("\(skinProblem) selected & saved")
         }
     }
     
     @IBAction func submitButton(_ sender: UIButton) {
-        skinType = selections.0
-        skinProblem = selections.1
+        selections.0 = skinType
+        selections.1 = skinProblem
         print("\(skinType!) and \(skinProblem!)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let recommender = Recommender(skinType: skinType, skinProblem: skinProblem)
+        if let destinationViewController = segue.destination as? ProductsTableViewController {
+            destinationViewController.recommender = recommender
+        }
     }
     
 //    func presentTableView() {

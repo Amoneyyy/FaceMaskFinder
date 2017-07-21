@@ -12,9 +12,9 @@ class ProductsTableViewController: UITableViewController {
 
     var skinType: String!
     
-    var skinProblem: String! 
+    var skinProblem: String!
     
-    let productList = ["mask1", "mask2"]
+    var recommender: Recommender?
     
     let products = [
         "mask1" : [
@@ -37,7 +37,8 @@ class ProductsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        myPrint()
+        personalizedResults = recommender!.recommendedProducts()
+        // myPrint()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
