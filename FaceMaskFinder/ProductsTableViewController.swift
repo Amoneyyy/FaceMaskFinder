@@ -119,13 +119,17 @@ class ProductsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mySegue" {
             if let nextViewController = segue.destination as? DetailViewController {
+               
                 
                 let indexPath = self.tableView.indexPathForSelectedRow
                 
                 let selectedMask = personalizedResults[(indexPath?.row)!]
+                
+                nextViewController.text = selectedMask
+                
                 //nextViewController.testingLabel.text = "testing"
-                nextViewController.view.backgroundColor = UIColor.white
-                nextViewController.maskDescription.text = selectedMask
+//                nextViewController.view.backgroundColor = UIColor.white
+//                nextViewController.maskDescription.text = selectedMask
                 
             }
         }

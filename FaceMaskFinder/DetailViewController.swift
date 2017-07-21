@@ -12,9 +12,12 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var testingLabel: UILabel!
     @IBOutlet weak var maskDescription: UILabel!
+    //var text: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //testingLabel.text = text
 
         // Do any additional setup after loading the view.
     }
