@@ -27,6 +27,9 @@ class Sorter {
         if skinType == "Combination" || skinType == "Dry" {
             results.append("Biomiracle Anti-aging and Moisturizing Face Mask Sheets")
         }
+        if skinType == "Dry" || skinType == "Combination" || skinProblem == "Dryness" {
+            results.append("Ultra Repair Instant Oatmeal Mask")
+        }
         results.append("Garnier Skinactive Clean and Pore Purifying 2-in-1 Clay Cleanser and Mask")
         return results
     }

@@ -15,13 +15,21 @@ class ProductsTableViewController: UITableViewController {
     let products = [
         "Biomiracle Anti-aging and Moisturizing Face Mask Sheets" : [
             "Producer" : "Biomiracle",
-            "Description" : " After 20 minutes of use, remove this Vitamin C sheet mask to reveal brighter, dewy skin. You’re sure to agree with the many happy reviewers that have already claimed this new product a 'must-have'. ---- Reduces fine lines and wrinkles, brightens skin texture; Firming affect; Made from the finest collagen essence; Easy application in just 20 minutes;",
-            "Price" : "7"
+            "Description" : " After 20 minutes of use, remove this Vitamin C sheet mask to reveal brighter, dewy skin. You’re sure to agree with the many happy reviewers that have already claimed this new product a 'must-have'. ---- Reduces fine lines and wrinkles, brightens skin texture; Firming affect; Made from the finest collagen essence; Easy application in just 20 minutes. Price $7",
+            "Price" : "7",
+            "Image" : #imageLiteral(resourceName: "biomiracleImage")
         ],
         "Garnier Skinactive Clean and Pore Purifying 2-in-1 Clay Cleanser and Mask" : [
             "Producer" : "Garnier",
-            "Description" : "Get two products in one when you purchase the new clay cleanser and mask by Garnier that incorporates charcoal and kaolin to remove surface impurities while unclogging pores.; Daily cleanser & detox mask in 1 product; Kaolin clay + charcoal help purify skin",
-            "Price" : "5"
+            "Description" : "Get two products in one when you purchase the new clay cleanser and mask by Garnier that incorporates charcoal and kaolin to remove surface impurities while unclogging pores.; Daily cleanser & detox mask in 1 product; Kaolin clay + charcoal help purify skin. Price $5",
+            "Price" : "5",
+            "Image" : #imageLiteral(resourceName: "garnierImage")
+        ],
+        "Ultra Repair Instant Oatmeal Mask" : [
+            "Producer" : "First Aid Beauty",
+            "Description" : "With oatmeal to soothe skin and shea butter to nourish it, Ultra Repair Instant Oatmeal Mask from First Aid Beauty is perfect for sensitive complexions. To top it off, there are no parabens, sulfates, or synthetic fragrances and dyes. Price $22",
+            "Price" : "$22",
+            "Image" : #imageLiteral(resourceName: "ultraImage")
         ]
     ]
     
@@ -122,9 +130,10 @@ class ProductsTableViewController: UITableViewController {
                 
                 let selectedMask = personalizedResults[(indexPath?.row)!]
                 //nextViewController.testingLabel.text = "testing"
-                nextViewController.view.backgroundColor = UIColor.white
+                nextViewController.view.backgroundColor = UIColor.init(red: 255/255, green: 223/255, blue: 225/255, alpha: 1/1)
                 nextViewController.maskTitle.text = selectedMask
-                nextViewController.maskDetails.text = products[selectedMask]?["Description"] ?? "No description found"
+                nextViewController.maskDetails.text = products[selectedMask]?["Description"] as! String ?? "No description found"
+                nextViewController.maskImage.image = products[selectedMask]?["Image"] as! UIImage ?? #imageLiteral(resourceName: "potatoImage")
                 
             }
         }

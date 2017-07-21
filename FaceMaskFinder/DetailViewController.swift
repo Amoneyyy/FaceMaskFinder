@@ -10,6 +10,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var maskImage: UIImageView!
+    
     @IBOutlet weak var maskTitle: UILabel!
 
     @IBOutlet weak var maskDetails: UILabel!
