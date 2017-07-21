@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-   
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var sensitiveButton: UISwitch!
@@ -22,9 +21,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var selections: (String, String) = ("No", "Nothing")
     
-    var skinType: String!
+    var skinType: String = "Oily"
     
-    var skinProblem: String!
+    var skinProblem: String = "Acne"
     
     
     
@@ -46,6 +45,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let sorter = Sorter(skinType: skinType, skinProblem: skinProblem)
+        if let productsTableViewController = segue.destination as? ProductsTableViewController {
+            productsTableViewController.sorter = sorter
+        }
+    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return components.count
@@ -59,24 +65,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return components[component][row]
     }
     
-    func pickerView(_pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 0 {
             skinType = components[component][row]
-        }
-        else {
+            print("\(skinType) selected and saved")
+        } else {
             skinProblem = components[component][row]
+            print("\(skinProblem) selected and saved")
         }
+        
     }
-    
     @IBAction func submitButton(_ sender: UIButton) {
-        skinType = selections.0
-        skinProblem = selections.1
-        print("\(skinType!) and \(skinProblem!)")
+        selections.0 = skinType
+        selections.1 = skinProblem
+        print("\(skinType) and \(skinProblem)")
     }
     
-//    func presentTableView() {
-//        skinWheel.selectedRow(inComponent: <#T##Int#>)
-//    }
 
 
 

@@ -9,22 +9,18 @@
 import UIKit
 
 class ProductsTableViewController: UITableViewController {
-
-    var skinType: String!
     
-    var skinProblem: String! 
-    
-    let productList = ["mask1", "mask2"]
+    var sorter: Sorter? 
     
     let products = [
         "mask1" : [
-            "name" : "Biomiracle anti-aging and moisturizing face mask sheets",
+            "name" : "Biomiracle Anti-aging and Moisturizing Face Mask Sheets",
             "Producer" : "Biomiracle",
             "Description" : " After 20 minutes of use, remove this Vitamin C sheet mask to reveal brighter, dewy skin. You’re sure to agree with the many happy reviewers that have already claimed this new product a 'must-have'. ---- Reduces fine lines and wrinkles, brightens skin texture; Firming affect; Made from the finest collagen essence; Easy application in just 20 minutes;",
             "Price" : "7"
         ],
         "mask2" : [
-            "name" : "Garnier skinactive clean and pore purifying 2-in-1 clay cleanser and mask",
+            "name" : "Garnier Skinactive Clean and Pore Purifying 2-in-1 Clay Cleanser and Mask",
             "Producer" : "Garnier",
             "Description" : "Get two products in one when you purchase the new clay cleanser and mask by Garnier that incorporates charcoal and kaolin to remove surface impurities while unclogging pores.; Daily cleanser & detox mask in 1 product; Kaolin clay + charcoal help purify skin",
             "Price" : "5"
@@ -37,8 +33,8 @@ class ProductsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        myPrint()
-
+        personalizedResults = sorter!.recommend()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -76,34 +72,6 @@ class ProductsTableViewController: UITableViewController {
     
     
 
-    
-//    func makePersonalizeList(skinType: String, skinProblem: String) {
-//        if skinType == "combination" || skinType == "dry" {
-//            personalizedResults.append(products["mask1"]!)
-//        }
-//        personalizedResults.append(products["mask2"]!)
-//        if skinProblem == "acne" {
-//            // universal acne
-//        }
-//        if skinProblem == "acne" && skinType == "oily" {
-//            // solution for oily skin only.
-//        }
-//    }
-    
-    //print(products["Biomiracle anti-aging and moisturizing face mask sheets"]!["Price"]!)
-    func myPrint() {
-        for (key, value) in products {
-        print("This is the dictionary key: \(key)")
-        print("This is the value: \(value)")
-            
-            for (key, value) in value {
-                
-                print("This is the dictionary key: \(key)111111111111111111111111111")
-                print("This is the value: \(value)1111111111111111111111111")
-            }
-            
-        }
-    }
     
     
 
@@ -144,14 +112,28 @@ class ProductsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "mySegue" {
+            if let nextViewController = segue.destination as? DetailViewController {
+                
+                let indexPath = self.tableView.indexPathForSelectedRow
+                
+                let selectedMask = personalizedResults[(indexPath?.row)!]
+                //nextViewController.testingLabel.text = "testing"
+                nextViewController.view.backgroundColor = UIColor.white
+                nextViewController.maskDescription.text = selectedMask
+                
+            }
+        }
+        
     }
-    */
+    
 
 }
+
+
+

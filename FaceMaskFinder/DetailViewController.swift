@@ -10,6 +10,9 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var testingLabel: UILabel!
+    @IBOutlet weak var maskDescription: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
